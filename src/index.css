@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main-body{
+    position: relative;
+    box-sizing: border-box;
+    background-color: #242424;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.name{
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    left: 120px;
+    top:40vh;
+    z-index: 1;
+    animation: come-in 1s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-body h1{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 150px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    left: 5%;
+    top:45vh;
+    text-transform: uppercase;
+    z-index: 1;
+    animation: come-in 2s;
+}
+
+@keyframes come-in {
+    0%{
+        transform: translateX(-400%);
+    }
+}
+
+.floating-number{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    font-size: 800px;
+    color: #404040;
+    right: 0;
+    top: 0;
+    opacity: 0.5;
+    transform: translateX(10%);
+    animation: float 4s forwards ;
+    cursor: default;
+}
+
+@keyframes float {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.amazing{
+    color: white;
+    font-size: 36px;
+    letter-spacing: 3px;
+    font-weight: lighter;
+    font-family: Arial;
+    position: absolute;
+    top:200px;
+    left: 100px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: blink 0.2s;
+    animation-iteration-count:5;
+    animation-delay: 2s;
+    cursor: default;
+}
+
+@keyframes blink {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+
+}
+
+.box1, .box2, .box3{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    transform: translateX(400%);
+}
+
+@keyframes box {
+    from{
+        transform: translateX(400%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+
+}
+
+.box1{
+    opacity: 0.5;
+    top: 500px;
+    right: 400px;
+    animation: box 2s forwards ;
+    animation-delay: 1s;
+    background-color: #ebbab9;
+}
+
+.box2{
+    opacity: 0.7;
+    top: 450px;
+    right: 350px;
+    animation: box 2s forwards ;
+    animation-delay: 1.25s;
+    background-color: #b5ffe1;
+}
+
+.box3{
+    opacity: 1;
+    top: 400px;
+    right: 300px;
+    animation: box 2s forwards ;
+    animation-delay: 1.5s;
+    background-color: #cc2936;
+}
+
+
