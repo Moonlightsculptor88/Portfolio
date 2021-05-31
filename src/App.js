@@ -1,4 +1,3 @@
-import img from "./assets/background1.jpg"
 import './index.css';
 
 function App() {
