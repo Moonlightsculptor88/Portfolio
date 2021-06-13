@@ -37,11 +37,28 @@ body::-webkit-scrollbar {
         display: flex;
         overflow: hidden;
         scroll-snap-align: start;
+        position: relative;
+
+        .first-half{
+            width: 50vw;
+            height: 100vh;
+            background: teal;
+        }
+        .second-half{
+            width: 50vw;
+            height: 100vh;
+            background: teal;
+            position: absolute;
+            right: 0;
+            z-index: 0;
+        }
 
         &:nth-of-type(1){
             position: relative;
             box-sizing: border-box;
-            background-color: #242424;
+            background-color: #F5F2EB;
+
+
     }
         &:nth-of-type(2){
             background-color: #F5F2EB;
@@ -55,16 +72,29 @@ body::-webkit-scrollbar {
                 text-transform: uppercase;
                 writing-mode: vertical-rl;
                 margin: auto 0;
+                transform: translateX(-8rem);
             }
+            .h1-animation{
+                animation: slide-in-left 2s forwards ;
+                opacity: 0;
+            }
+            @keyframes slide-in-left {
+                to{
+                    transform: translateX(0rem);
+                    opacity: 1;
+                }
+            }
+
             p {
                     font-family: 'Source Code Pro', monospace;
                     color: black;
                     margin: auto 20px;
-                    font-size: 2.5rem;
+                    font-size: 2rem;
                     position: relative;
                     opacity: 0;
-                font-weight: 600;
+                    font-weight: 600;
         }
+
 
             .before,
             .after{
@@ -79,16 +109,16 @@ body::-webkit-scrollbar {
                 background-color: #F5F2EB;
                 animation:
                         typewriter 4s steps(27)  forwards ;
-                animation-delay: 1s;
+                animation-delay: 2s;
             }
 
             .after{
                 width: 0.125em;
                 background-color: black;
                 animation:
-                        typewriter 4s steps(27) 2s forwards,
+                        typewriter 4s steps(27)  forwards,
                         typewriter-blink 700ms steps(27) infinite;
-                animation-delay: 1s,  0s;
+                animation-delay: 2s,  0s;
             }
             .opacity{
 
@@ -116,7 +146,7 @@ body::-webkit-scrollbar {
             }
         }
         &:nth-of-type(3){
-            background-color: #242424;
+            background-color: #F5F2EB;
             color: white;
             box-sizing: border-box;
         }
@@ -143,20 +173,83 @@ body::-webkit-scrollbar {
     font-family: 'Montserrat', sans-serif;
 }
 
-.main-body h1{
+.main-body h1::before{
+    content: 'Design!';
     margin: 0;
     padding: 0;
     position: absolute;
-    color: white;
+    color: black;
     font-family: 'Montserrat', sans-serif;
-    font-size: 100px;
+    font-size: 4.5em;
     font-weight: 400;
     letter-spacing: 1px;
-    left: 5%;
     top:45vh;
     text-transform: uppercase;
+    text-shadow: 2px 2px 5px #000;
     z-index: 1;
-    animation: come-in 2s;
+    animation:
+            come-in 2s ease,
+            change-text 7s infinite ease 2s ;
+    ;
+}
+
+@keyframes change-text {
+    1%{
+        content: "#1";
+    }
+    2%{
+        content: "#1DE";
+    }
+    3%{
+        content: "!$%^"
+    }
+    4%{
+        content: "!P#E%"
+    }
+    5%{
+        content: "!IBV#E%"
+    }
+    6%{
+        content:"!ECTIO" ;
+    }
+    7%{
+        content: "SBIEUV";
+     }
+    8%{
+        content: "P&R%E*TI";
+    }
+    9%{
+        content: "PERFECTION!";
+    }
+    50%{
+        content: "PERFECTION!";
+    }
+    51%{
+        content: "BOCHIBF";
+    }
+    52%{
+        content: "P&R%E*TI";
+    }
+    53%{
+        content: "SBIEUV";
+    }
+    54%{
+        content:"!ECTIO" ;
+    }
+    55%{
+        content: "!IBV#E%"
+    }
+    56%{
+        content: "!P#E%"
+    }
+    57%{
+        content: "!$%^"
+    }
+    58%{
+        content: "DESIGN!";
+    }
+
+
 }
 
 @keyframes come-in {
@@ -171,9 +264,9 @@ body::-webkit-scrollbar {
     position: absolute;
     font-size: 500px;
     color: #404040;
-    right: 0;
+    left: 0;
     top: 0;
-    opacity: 0.5;
+    opacity: 0.3;
     transform: translateX(10%);
     animation: float 4s forwards ;
     cursor: default;
@@ -181,10 +274,10 @@ body::-webkit-scrollbar {
 
 @keyframes float {
     from{
-        transform: translateX(100%);
+        transform: translateX(300%);
     }
     to{
-        transform: translateX(-130%);
+        transform: translateX(50%);
     }
 }
 
@@ -216,15 +309,20 @@ body::-webkit-scrollbar {
 }
 
 .box1, .box2, .box3{
-    height: 150px;
-    width: 150px;
+    height: 30px;
+    width: 30px;
     position: absolute;
-    transform: translateX(400%);
+    border-radius: 50%;
+    transform: translateX(1700%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
 }
 
 @keyframes box {
     from{
-        transform: translateX(400%);
+        transform: translateX(1700%);
     }
     to{
         transform: translateX(0%);
@@ -232,33 +330,34 @@ body::-webkit-scrollbar {
 
 }
 
+
+
 .box1{
     opacity: 0.5;
-    top: 500px;
-    right: 400px;
+    top: 600px;
+    right: 450px;
     animation: box 2s forwards, jump 1.5s infinite ;
     animation-delay: 1s, 3s;
-    background-color: #ebbab9;
+
 }
 
 .box2{
     opacity: 0.7;
-    top: 450px;
-    right: 350px;
+    top: 600px;
+    right: 400px;
     animation: box 2s forwards, jump 1.5s infinite ;
     animation-delay: 1.25s , 3.25s;
-    background-color: #b5ffe1;
+
 }
 
 .box3{
     opacity: 0.9;
-    top: 400px;
-    right: 300px;
+    top: 600px;
+    right: 350px;
     animation: box 2s forwards, jump 1.5s infinite ;
     animation-delay: 1.5s , 3.5s;
-    //animation: jump 2s infinite ;
-    //animation-delay: 3s;
-    background-color: #cc2936;
+
+
 }
 
 @keyframes jump {
