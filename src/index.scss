@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+
+html{
+    overflow: hidden;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//.container::-webkit-scrollbar {
+//    display: none;
+//}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: auto;
+    overflow: scroll;
+    overflow-x:hidden;
+    background-position: center center;
+
+
+    section{
+        height:100vh;
+        width: 100vw;
+        display: flex;
+        overflow: hidden;
+        scroll-snap-align: start;
+
+        &:nth-of-type(1){
+            position: relative;
+            box-sizing: border-box;
+            background-color: #242424;
+    }
+        &:nth-of-type(2){
+            background-color: #F5F2EB;
+            color: aqua;
+            box-sizing: border-box;
+
+            h1{
+                color: teal;
+                font-size: 7.5em;
+                font-weight: 500;
+                text-transform: uppercase;
+                writing-mode: vertical-rl;
+                margin: auto 0;
+            }
+            p {
+                    font-family: 'Source Code Pro', monospace;
+                    color: black;
+                    margin: auto 20px;
+                    font-size: 2.5rem;
+                    position: relative;
+                    opacity: 0;
+                font-weight: 600;
+        }
+
+            .before,
+            .after{
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            .before{
+                background-color: #F5F2EB;
+                animation:
+                        typewriter 4s steps(27)  forwards ;
+                animation-delay: 1s;
+            }
+
+            .after{
+                width: 0.125em;
+                background-color: black;
+                animation:
+                        typewriter 4s steps(27) 2s forwards,
+                        typewriter-blink 700ms steps(27) infinite;
+                animation-delay: 1s,  0s;
+            }
+            .opacity{
+
+                animation: opacity 0.1s forwards;
+            }
+            @keyframes opacity {
+                to{
+                    opacity: 1;
+                }
+
+            }
+            
+            @keyframes typewriter-blink {
+                to{
+                    background: transparent;
+                }
+            }
+
+
+            @keyframes typewriter {
+                to{
+                    left: 100%;
+                }
+
+            }
+        }
+        &:nth-of-type(3){
+            background-color: #242424;
+            color: white;
+            box-sizing: border-box;
+        }
+
+
+
+    }
+
+}
+
+
+
+
+
+
+.name{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    left: 5.5%;
+    top:40vh;
+    z-index: 1;
+    animation: come-in 1s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-body h1{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    left: 5%;
+    top:45vh;
+    text-transform: uppercase;
+    z-index: 1;
+    animation: come-in 2s;
+}
+
+@keyframes come-in {
+    0%{
+        transform: translateX(-400%);
+    }
+}
+
+.floating-number{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    font-size: 500px;
+    color: #404040;
+    right: 0;
+    top: 0;
+    opacity: 0.5;
+    transform: translateX(10%);
+    animation: float 4s forwards ;
+    cursor: default;
+}
+
+@keyframes float {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(-130%);
+    }
+}
+
+.amazing{
+    color: white;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: lighter;
+    font-family: Arial;
+    position: absolute;
+    top:150px;
+    left: 100px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: blink 0.2s;
+    animation-iteration-count:5;
+    animation-delay: 2s;
+    cursor: default;
+}
+
+@keyframes blink {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+
+}
+
+.box1, .box2, .box3{
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    transform: translateX(400%);
+}
+
+@keyframes box {
+    from{
+        transform: translateX(400%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+
+}
+
+.box1{
+    opacity: 0.5;
+    top: 500px;
+    right: 400px;
+    animation: box 2s forwards, jump 1.5s infinite ;
+    animation-delay: 1s, 3s;
+    background-color: #ebbab9;
+}
+
+.box2{
+    opacity: 0.7;
+    top: 450px;
+    right: 350px;
+    animation: box 2s forwards, jump 1.5s infinite ;
+    animation-delay: 1.25s , 3.25s;
+    background-color: #b5ffe1;
+}
+
+.box3{
+    opacity: 0.9;
+    top: 400px;
+    right: 300px;
+    animation: box 2s forwards, jump 1.5s infinite ;
+    animation-delay: 1.5s , 3.5s;
+    //animation: jump 2s infinite ;
+    //animation-delay: 3s;
+    background-color: #cc2936;
+}
+
+@keyframes jump {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+
+//ABOUT ME SECTION
+
