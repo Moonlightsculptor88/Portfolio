@@ -1,6 +1,7 @@
 import './index.scss';
 import React, {useEffect} from 'react';
 import { useInView } from 'react-intersection-observer';
+import { AiOutlineMail } from 'react-icons/ai';
 // import AOS from 'aos';
 // import 'aos/dist/aos.css'; // You can also use <link> for styles
 //
@@ -100,16 +101,25 @@ function App() {
 
     return (
       <div className="container">
+
                 <section className="main-body" >
+                    <div   className="message" ><AiOutlineMail size="2em" /></div>
+                    <nav>
+                        <ul>
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Projects</li>
+                        </ul>
+                    </nav>
 
                     <h1></h1>
                     <div className="first-half">
                     <p className="amazing">Amazing</p>
                     <p className="floating-number">01</p>
                     </div>
-
                     <div id="container">
-                        <div id="inner">Some Quote goes here.</div>
+
+                        <div id="inner"><p>Some Quote goes here.</p></div>
                     </div>
 
 
