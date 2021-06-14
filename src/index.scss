@@ -39,10 +39,12 @@ body::-webkit-scrollbar {
         scroll-snap-align: start;
         position: relative;
 
+
         .first-half{
             width: 50vw;
             height: 100vh;
             background: teal;
+            position: relative;
         }
         .second-half{
             width: 50vw;
@@ -57,6 +59,42 @@ body::-webkit-scrollbar {
             position: relative;
             box-sizing: border-box;
             background-color: #F5F2EB;
+            align-items: center;
+
+
+
+            .button{
+                height: 100px;
+                width: 100px;
+                border-radius: 50%;
+                margin: auto;
+                background-color: teal;
+                color: #F5F2EB;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif;
+                font-weight: 600;
+                border: none;
+            }
+            #container {
+                /* This will come into play later */
+                perspective: 30px;
+                margin: auto;
+            }
+
+            #inner {
+                width: 20em;
+                height: 18em;
+                background-color: teal;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.5s;
+                -webkit-transition: transform 0.5s;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-family: 'Source Code Pro', monospace;
+            }
 
 
     }
@@ -108,7 +146,7 @@ body::-webkit-scrollbar {
             .before{
                 background-color: #F5F2EB;
                 animation:
-                        typewriter 4s steps(27)  forwards ;
+                        typewriter 4s steps(25)  forwards ;
                 animation-delay: 2s;
             }
 
@@ -116,8 +154,8 @@ body::-webkit-scrollbar {
                 width: 0.125em;
                 background-color: black;
                 animation:
-                        typewriter 4s steps(27)  forwards,
-                        typewriter-blink 700ms steps(27) infinite;
+                        typewriter 4s steps(25)  forwards,
+                        typewriter-blink 700ms steps(25) infinite;
                 animation-delay: 2s,  0s;
             }
             .opacity{
@@ -185,11 +223,11 @@ body::-webkit-scrollbar {
     letter-spacing: 1px;
     top:45vh;
     text-transform: uppercase;
-    text-shadow: 2px 2px 5px #000;
+    text-shadow: 2px 2px 10px #000;
     z-index: 1;
     animation:
             come-in 2s ease,
-            change-text 7s infinite ease 2s ;
+            change-text 7s infinite ease 4s ;
     ;
 }
 
@@ -264,20 +302,23 @@ body::-webkit-scrollbar {
     position: absolute;
     font-size: 500px;
     color: #404040;
-    left: 0;
+    left: 0vw;
     top: 0;
     opacity: 0.3;
     transform: translateX(10%);
     animation: float 4s forwards ;
     cursor: default;
+    text-shadow: 2px 2px 5px #000;
 }
 
 @keyframes float {
     from{
         transform: translateX(300%);
+        opacity: 0;
     }
     to{
         transform: translateX(50%);
+        opacity: 0.3;
     }
 }
 
@@ -286,7 +327,6 @@ body::-webkit-scrollbar {
     font-size: 24px;
     letter-spacing: 3px;
     font-weight: lighter;
-    font-family: Arial;
     position: absolute;
     top:150px;
     left: 100px;
@@ -335,7 +375,7 @@ body::-webkit-scrollbar {
 .box1{
     opacity: 0.5;
     top: 600px;
-    right: 450px;
+    right: calc(23.5vw + 50px);
     animation: box 2s forwards, jump 1.5s infinite ;
     animation-delay: 1s, 3s;
 
@@ -344,7 +384,7 @@ body::-webkit-scrollbar {
 .box2{
     opacity: 0.7;
     top: 600px;
-    right: 400px;
+    right: 23.5vw;
     animation: box 2s forwards, jump 1.5s infinite ;
     animation-delay: 1.25s , 3.25s;
 
@@ -353,7 +393,7 @@ body::-webkit-scrollbar {
 .box3{
     opacity: 0.9;
     top: 600px;
-    right: 350px;
+    right: calc(23.5vw - 50px);
     animation: box 2s forwards, jump 1.5s infinite ;
     animation-delay: 1.5s , 3.5s;
 
